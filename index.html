@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Term Project</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="start-screen">
+      <button id="start-btn">▶ Start with Sound</button>
+      <video id="intro-video" playsinline>
+        <source src="./assets/op.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <!-- 後で消す -->
+      <button id="skip-btn">⏩ Skip OP</button>
+    </div>
+
+    <!-- キャラクター選択画面（動画が終わったら出る） -->
+
+    <div id="character-select" style="display: none">
+      <h2>Choose your partner:</h2>
+
+      <div class="character">
+        <img src="./assets/purin-profile.png" alt="purin" />
+        <button class="purin-btn" onclick="selectCharacter('purin')">
+          Purin
+        </button>
+      </div>
+
+      <div class="character">
+        <img src="./assets/mame-profile.png" alt="" />
+        <button class="mame-btn" onclick="selectCharacter('mame')">Mame</button>
+      </div>
+    </div>
+
+    <div id="game-container" style="display: none">
+      <!-- キャラ画像 -->
+      <img
+        id="purin-img"
+        src="./assets/purin.png"
+        alt="Character"
+        class="purin-art"
+      />
+
+      <!-- 好感度ゲージ -->
+      <div id="affection-bar"></div>
+
+      <!-- ✅ ✅ ✅ セリフボックスここに入れる！ -->
+      <div class="dialogue-box">
+        <div class="name-label" id="character-name">Purin</div>
+        <img src="./assets/text-box.png" alt="textbox" />
+        <p id="story-text" class="dialogue-text"></p>
+      </div>
+
+      <!-- 選択肢ボタン -->
+      <div id="choices"></div>
+
+      <!-- 結果 -->
+      <div id="result-text"></div>
+    </div>
+
+    <!-- Ending用リプレイボタン -->
+    <button id="replay-btn" style="display: none">
+      Choose Character Again
+    </button>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
