@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Purin Game</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/purin.css" />
+  </head>
+  <body>
+    <!-- ゲーム画面 -->
+    <div id="game-container">
+      <!-- キャラ画像 -->
+      <img id="purin-img" src="./assets/purin.png" class="purin-art" />
+
+      <!-- 好感度ゲージ -->
+      <div id="affection-bar"></div>
+
+      <!-- セリフボックス -->
+      <div class="dialogue-box">
+        <div class="name-label" id="character-name">Purin</div>
+        <img src="./assets/text-box.png" alt="textbox" />
+        <p id="story-text" class="dialogue-text"></p>
+      </div>
+
+      <!-- 選択肢ボタン -->
+      <div id="choices"></div>
+
+      <!-- 結果 -->
+      <div id="result-text"></div>
+    </div>
+
+    <!-- エンディング時のリプレイ -->
+    <button id="replay-btn" style="display: none">Go back to character select</button>
+
+    <!-- スクリプト読み込み -->
+    <script src="./js/purin.js"></script>
+  </body>
+</html>

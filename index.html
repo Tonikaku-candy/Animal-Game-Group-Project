@@ -13,67 +13,32 @@
     />
   </head>
   <body>
+    <!-- OP動画 -->
     <div id="start-screen">
       <button id="start-btn">▶ Start with Sound</button>
       <video id="intro-video" playsinline>
         <source src="./assets/op.mp4" type="video/mp4" />
-        Your browser does not support the video tag..
       </video>
-      <!-- 後で消す -->
-      <!-- TEST -->
-
       <button id="skip-btn">⏩ Skip OP</button>
     </div>
 
-    <!-- キャラクター選択画面（動画が終わったら出る） -->
-
+    <!-- キャラクター選択画面 -->
     <div id="character-select" style="display: none">
       <h2>Choose your partner:</h2>
 
       <div class="character">
-        <img src="./assets/purin-profile.png" alt="purin" />
+        <img src="./assets/purin-profile.png" />
         <button class="purin-btn" onclick="selectCharacter('purin')">
           Purin
         </button>
       </div>
 
       <div class="character">
-        <img src="./assets/mame-profile.png" alt="" />
+        <img src="./assets/mame-profile.png" />
         <button class="mame-btn" onclick="selectCharacter('mame')">Mame</button>
       </div>
     </div>
 
-    <div id="game-container" style="display: none">
-      <!-- キャラ画像 -->
-      <img
-        id="purin-img"
-        src="./assets/purin.png"
-        alt="Character"
-        class="purin-art"
-      />
-
-      <!-- 好感度ゲージ -->
-      <div id="affection-bar"></div>
-
-      <!-- ✅ ✅ ✅ セリフボックスここに入れる！ -->
-      <div class="dialogue-box">
-        <div class="name-label" id="character-name">Purin</div>
-        <img src="./assets/text-box.png" alt="textbox" />
-        <p id="story-text" class="dialogue-text"></p>
-      </div>
-
-      <!-- 選択肢ボタン -->
-      <div id="choices"></div>
-
-      <!-- 結果 -->
-      <div id="result-text"></div>
-    </div>
-
-    <!-- Ending用リプレイボタン -->
-    <button id="replay-btn" style="display: none">
-      Choose Character Again
-    </button>
-
-    <script src="./js/script.js"></script>
+    <script src="./js/index.js"></script>
   </body>
 </html>
