@@ -42,12 +42,12 @@ function loadQuestion() {
     return;
   }
 
-    // 💡ここで画像を切り替える
-  const characterImage = document.getElementById("purin-img");
+  // 💡ここで画像を切り替える
+  const characterImage = document.getElementById('purin-img');
   if (currentDay === 0) {
-    characterImage.src = "./assets/purin.png";
+    characterImage.src = './assets/purin.png';
   } else if (currentDay === 1) {
-    characterImage.src = "./assets/purin2.png";
+    characterImage.src = './assets/purin2.png';
   }
 
   document.getElementById('story-text').innerText = question.text;
