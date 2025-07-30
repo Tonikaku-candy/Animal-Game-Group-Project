@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mame Game</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/mame.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- music -->
+    <!-- <audio id="bgm" src="./assets/bgm2.mp3" autoplay loop></audio> -->
+
+    <!-- ゲーム画面 -->
+    <div id="game-container">
+
+      <!-- affection bar -->
+      <div id="affection-display">
+        <div id="affection-bar"></div>
+        <div id="affection-score"></div>
+      </div>
+
+      <!-- 結果 -->
+      <div id="result-wrapper">
+        <div id="result-text"></div>
+      </div>
+
+      <!-- キャラ画像 -->
+      <img id="mame-photo" src="./assets/mame.png" class="mame-art" />
+
+      <!-- セリフボックス -->
+      <div class="dialogue-box">
+        <div class="name-label" id="character-name">Mame</div>
+        <img src="./assets/text-box.png" alt="textbox" />
+        <p id="story-text" class="dialogue-text"></p>
+
+        <!-- 選択肢ボタン -->
+        <div id="choices"></div>
+      </div>
+
+      <!-- エンディング時のリプレイ -->
+      <button id="replay-btn" style="display: none">Go back to opening</button>
+    </div>
+
+    <!-- スクリプト読み込み -->
+    <script src="./js/mame.js"></script>
+  </body>
+</html>

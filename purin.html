@@ -5,12 +5,29 @@
     <title>Purin Game</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/purin.css" />
+      <link
+      href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <!-- music -->
+    <!-- <audio id="bgm" src="./assets/bgm.mp3" autoplay loop></audio> -->
     <!-- ゲーム画面 -->
     <div id="game-container">
+
+      <!-- affection bar -->
+      <div id="affection-display">
+  <div id="affection-bar"></div>
+  <div id="affection-score"></div>
+</div>
+
+         <!-- 結果 -->
+<div id="result-wrapper">
+  <div id="result-text"></div>
+  </div>
       <!-- キャラ画像 -->
-      <img id="purin-img" src="./assets/purin.png" class="purin-art" />
+      <img id="purin-photo" src="./assets/purin.png" class="purin-art" />
 
       <!-- 好感度ゲージ -->
       <div id="affection-bar"></div>
@@ -20,17 +37,17 @@
         <div class="name-label" id="character-name">Purin</div>
         <img src="./assets/text-box.png" alt="textbox" />
         <p id="story-text" class="dialogue-text"></p>
+           <!-- 選択肢ボタン -->
+      <div id="choices"></div>
       </div>
 
-      <!-- 選択肢ボタン -->
-      <div id="choices"></div>
+   
 
-      <!-- 結果 -->
-      <div id="result-text"></div>
-    </div>
+   
+
 
     <!-- エンディング時のリプレイ -->
-    <button id="replay-btn" style="display: none">Go back to character select</button>
+    <button id="replay-btn" style="display: none">Go back to opening</button>
 
     <!-- スクリプト読み込み -->
     <script src="./js/purin.js"></script>

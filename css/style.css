@@ -1,10 +1,11 @@
-body {
+html, body {
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100vh;
-  font-family: 'Winky Rough', sans-serif;
-  margin: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
+
 #start-screen {
   width: 100%;
   height: 100vh;
@@ -14,17 +15,21 @@ body {
 #skip-btn {
   font-family: 'Winky Rough', sans-serif;
   position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 20px;
+  right: 20px;
   z-index: 1;
   padding: 10px 20px;
   background-color: hotpink;
   color: white;
   border: none;
   border-radius: 10px;
-  font-size: 1rem;
+  font-size: 2rem;
   cursor: pointer;
+}
+
+
+#skip-btn:hover {
+   background-color: rgb(166, 67, 116);
 }
 
 #start-btn {
@@ -39,26 +44,42 @@ body {
   color: white;
   border: none;
   border-radius: 10px;
-  font-size: 2rem;
+  font-size: 2.2rem;
   cursor: pointer;
+}
+
+#start-btn:hover {
+   background-color: rgb(166, 67, 116);
 }
 
 #intro-video {
   position: relative;
-  max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
+
+/* character select */
+
+
 #character-select {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   text-align: center;
-  margin: 0;
+  font-family: 'Winky Rough', sans-serif;
+}
+
+.character-wrapper {
+  position: relative;
+  top: 30%;
 }
 
 .character {
@@ -67,7 +88,7 @@ body {
 }
 
 .character img {
-  width: 150px;
+  width: 250px;
   border-radius: 20px;
   display: block;
   margin-bottom: 0.5rem;
@@ -100,7 +121,7 @@ body {
 }
 
 /* game design */
-#game-container {
+/* #game-container {
   position: relative;
   background-image: url(../assets/bg1.jpeg);
   background-size: cover;
@@ -108,7 +129,7 @@ body {
   background-position: center;
   margin: 0;
   min-height: calc(100vh - 30px);
-}
+} */
 
 #affection-bar {
   display: flex;
@@ -120,64 +141,91 @@ body {
 .heart-icon {
   width: 30px;
   height: auto;
-  display: inline-block; /* ← 念のため確認！ */
+  display: inline-block; 
 }
 
 /* dialogue*/
 
-.dialogue-box {
+#game-container {
+  width: 100%;
+  height: 100vh;
   position: relative;
-  width: 90%;
-  max-width: 700px;
-  margin: 1rem auto 2rem auto;
-  transform: translateY(-10rem); /* 👈 これで自然に上へ移動！ */
+  background-image: url('../assets/bg1.jpeg');
+  background-size: cover;
+  background-position: center;
 }
+
+
+
+/* .dialogue-box {
+  position: relative;
+  margin-top: 6rem; 
+}
+
+.dialogue-box img {
+  position: absolute;
+bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 900px;
+  height: auto;
+  z-index: 2;
+}
+
+
+
+.name-label {
+  position: absolute;
+  top: -19rem;             
+  left: 40%;           
+  transform: translateY(-100%);            
+  color: #ff69b4;
+  font-family: 'Winky Rough', sans-serif;
+  font-size: 1.4rem;
+  z-index: 3;
+} */
+
+.dialogue-box {
+  position: absolute;
+  bottom: 9%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 900px;
+  z-index: 10;
+  margin-bottom: 4rem; 
+}
+
 
 .dialogue-box img {
   width: 100%;
   height: auto;
   display: block;
-  z-index: 1;
-}
-
-.dialogue-text {
-  position: absolute;
-  top: 50%; /* 調整して好きな位置に！ */
-  left: 10%;
-  right: 10%;
-  font-family: 'Winky Rough', sans-serif;
-  font-size: 1.4rem;
-  color: #333;
-  text-align: center;
-  white-space: pre-wrap;
-  z-index: 2;
 }
 
 .name-label {
   position: absolute;
-  top: 130px;
-  left: 120px;
+  top: 30%;    
+  left: 20%;  
+  color: #ff69b4;
   font-family: 'Winky Rough', sans-serif;
-  font-size: 1.5rem;
-  color: #333;
-  z-index: 2;
+  font-size: 1.4rem;
+  z-index: 11;
 }
 
-/* character  */
-#purin-img {
-  margin: 0 auto;
-}
+
 
 /* btn */
 #choices {
-  position: absolute;
-  bottom: 100px;
-  left: 0;
-  right: 0;
+  margin-top:0rem;
   display: flex;
   justify-content: center;
   gap: 20px;
+  position: relative;
+  z-index: 5;
 }
+
 
 #choices button {
   font-family: 'Winky Rough', sans-serif;
@@ -186,20 +234,38 @@ body {
   border: none;
   border-radius: 20px;
   padding: 0.7rem 1.5rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.2s ease;
   margin-bottom: 10px;
 }
 
+#choices button:hover {
+   background-color: rgb(166, 67, 116);
+}
+
+
+
 #replay-btn {
-  margin: 2rem auto;
+    font-family: 'Winky Rough', sans-serif;
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 1rem 2rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   background-color: hotpink;
   color: white;
   border: none;
   border-radius: 10px;
   display: block;
   cursor: pointer;
+  z-index: 5;
 }
+
+
+#replay-btn:hover {
+   background-color: rgb(166, 67, 116);
+}
+
+

@@ -3,6 +3,7 @@ let currentDay = 0;
 
 function updateAffectionBar() {
   const bar = document.getElementById('affection-bar');
+  const score = document.getElementById('affection-score');
   bar.innerHTML = '';
 
   const heartCount = Math.min(5, Math.max(0, Math.floor(affection / 5)));
@@ -14,7 +15,11 @@ function updateAffectionBar() {
     img.className = 'heart-icon';
     bar.appendChild(img);
   }
+
+  
+  score.innerText = `Affection: ${affection}`;
 }
+
 
 const questions = [
   {
@@ -24,8 +29,16 @@ const questions = [
       { text: 'Offer a lemon', affection: -1 },
     ],
   },
+   {
+    text: 'Day 2: Purin seems bored. What do you do?',
+    options: [
+      { text: 'Give him a toy rabbit', affection: +1 },
+      { text: 'Do a silly dance', affection: +2 },
+      { text: 'Ignore him', affection: -2 },
+    ],
+  },
   {
-    text: 'Day 2: Purin hops around. What now?',
+    text: 'Day 3: Purin hops around. What now?',
     options: [
       { text: "Say: 'Nice pants!'", affection: +1 },
       { text: 'Pat his butt', affection: +2 },
@@ -35,20 +48,23 @@ const questions = [
 ];
 
 function loadQuestion() {
-  const question = questions[currentDay];
+  const resultText = document.getElementById('result-text'); 
+  resultText.style.display = 'none';
 
+  const question = questions[currentDay];
   if (!question) {
     showEnding();
+
     return;
   }
 
-  // 💡ここで画像を切り替える
-  const characterImage = document.getElementById('purin-img');
+  // change photo
+  const characterImage = document.getElementById('purin-photo');
   if (currentDay === 0) {
-    characterImage.src = './assets/purin.png';
-  } else if (currentDay === 1) {
     characterImage.src = './assets/purin2.png';
-  }
+  } else if (currentDay === 1) {
+    characterImage.src = './assets/purin.png';
+  } else {characterImage.src = './assets/purin2.png';}
 
   document.getElementById('story-text').innerText = question.text;
   updateAffectionBar();
@@ -69,6 +85,7 @@ function chooseOption(delta) {
   updateAffectionBar();
 
   const resultText = document.getElementById('result-text');
+  resultText.style.display = 'block';
   resultText.innerText =
     delta > 0
       ? 'Purin looks happy!'
@@ -80,29 +97,37 @@ function chooseOption(delta) {
 
   setTimeout(() => {
     resultText.innerText = '';
+    resultText.style.display = 'none'; 
     loadQuestion();
   }, 1500);
 }
 
+
 function showEnding() {
-  document.getElementById('story-text').innerText = 'The End 💌';
+  const resultText = document.getElementById('result-text');
+  const characterImage = document.getElementById('purin-photo');
+  const gameContainer = document.getElementById('game-container');
+
+  document.getElementById('story-text').innerText = 'The End';
   document.getElementById('choices').innerHTML = '';
 
-  const resultText = document.getElementById('result-text');
-  resultText.innerText =
-    affection >= 3
-      ? '💖 You and Purin are soulmates!'
-      : '💔 Purin hops away in silence...';
-
+  if (affection >= 3) {
+    resultText.innerText = '💖 Purin jumps into your arms!';
+    characterImage.src = './assets/purin-happy.png';
+  } else {
+    resultText.innerText = '💔 Purin turns away with sad eyes...';
+    characterImage.src = './assets/purin-sad.png';
+  }
+   resultText.style.display = 'block';
   document.getElementById('replay-btn').style.display = 'block';
 }
+
+
 
 document.getElementById('replay-btn').addEventListener('click', function () {
   affection = 0;
   currentDay = 0;
-
-  document.getElementById('replay-btn').style.display = 'none';
-  loadQuestion();
+  window.location.href = './index.html';
 });
 
 // ゲーム開始
