@@ -1,9 +1,10 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100vh;
-  overflow: hidden; /* ページ全体のスクロールを防ぐ */
+  overflow: hidden;
 }
 
 #start-screen {
@@ -27,9 +28,8 @@ html, body {
   cursor: pointer;
 }
 
-
 #skip-btn:hover {
-   background-color: rgb(166, 67, 116);
+  background-color: rgb(166, 67, 116);
 }
 
 #start-btn {
@@ -49,7 +49,7 @@ html, body {
 }
 
 #start-btn:hover {
-   background-color: rgb(166, 67, 116);
+  background-color: rgb(166, 67, 116);
 }
 
 #intro-video {
@@ -62,9 +62,7 @@ html, body {
   object-fit: cover;
 }
 
-
 /* character select */
-
 
 #character-select {
   width: 100%;
@@ -125,36 +123,42 @@ html, body {
   display: flex;
   justify-content: center;
   gap: 4px;
-  margin: 1rem auto;
+  margin: 2rem auto;
+  top: 20%;
 }
 
 .heart-icon {
   width: 30px;
   height: auto;
-  display: inline-block; 
+  display: inline-block;
 }
 
 /* dialogue*/
 
 #game-container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: relative;
   background-image: url('../assets/bg1.jpeg');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
-  overflow: hidden; /* スクロールを防ぐ */
+  overflow: hidden;
 }
 
-/* セリフボックスを画面下部に固定配置 */
 .dialogue-box {
-  position: fixed; /* fixedに変更してスクロールに関係なく固定 */
-  bottom: 20px; 
+  position: fixed;
+  top: 50%;
   left: 50%;
   transform: translateX(-50%);
-  width: 70%; 
-  max-width: 600px; 
+  width: 70%;
+  max-width: 600px;
   z-index: 10;
+}
+
+.dialogue-box img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .dialogue-box img {
@@ -165,11 +169,11 @@ html, body {
 
 .name-label {
   position: absolute;
-  top: 30%;    
-  left: 20%;  
+  top: 28%;
+  left: 20%;
   color: #ff69b4;
   font-family: 'Winky Rough', sans-serif;
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
   z-index: 11;
 }
 
@@ -189,22 +193,23 @@ html, body {
   color: white;
   border: none;
   border-radius: 20px;
-  padding: 0.5rem 1rem; 
-  font-size: 1.2rem; 
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.2s ease;
   margin-bottom: 10px;
 }
 
 #choices button:hover {
-   background-color: rgb(166, 67, 116);
+  background-color: rgb(166, 67, 116);
 }
 
 #replay-btn {
-    font-family: 'Winky Rough', sans-serif;
-  position: absolute;
-  bottom: 150px;
+  position: fixed;
+  font-family: 'Winky Rough', sans-serif;
+  bottom: 5%;
   left: 50%;
+  max-width: 1000px;
   transform: translateX(-50%);
   padding: 1rem 2rem;
   font-size: 1.5rem;
@@ -217,6 +222,60 @@ html, body {
   z-index: 5;
 }
 
+#replay-btn {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 24px;
+  z-index: 100;
+}
+
 #replay-btn:hover {
-   background-color: rgb(166, 67, 116);
+  background-color: rgb(166, 67, 116);
+}
+
+/* @media (min-width: 480px) {
+  #replay-btn {
+    bottom: 15%;
+  }
+
+
+#skip-btn {
+width: 50%;
+}
+
+#intro-video {
+  position: relative;
+  height: auto;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  object-fit:contain;
+} */
+
+
+
+
+@media (max-width: 600px) {
+  #character-select {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Winky Rough', sans-serif;
+    padding: 0 1rem;
+  }
+
+  .dialogue-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    z-index: 10;
+  }
 }

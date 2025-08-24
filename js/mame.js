@@ -8,20 +8,14 @@ function updateAffectionBar() {
 
   const heartCount = Math.min(5, Math.max(0, Math.floor(affection / 5)));
 
-  for (let i = 0; i < heartCount; i++) {
-    const img = document.createElement('img');
-    img.src = './assets/heart.png';
-    img.alt = 'heart';
-    img.className = 'heart-icon';
-    bar.appendChild(img);
-  }
+ 
 
   score.innerText = `Affection: ${affection}`;
 }
 
 const questions = [
 
-  // 質問はお好みで変えてください！
+  
   {
     text: 'Day 1: Mame looks at the sky. What do you do?',
     options: [

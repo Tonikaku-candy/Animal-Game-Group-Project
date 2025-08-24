@@ -8,18 +8,10 @@ function updateAffectionBar() {
 
   const heartCount = Math.min(5, Math.max(0, Math.floor(affection / 5)));
 
-  for (let i = 0; i < heartCount; i++) {
-    const img = document.createElement('img');
-    img.src = './assets/heart.png';
-    img.alt = 'heart';
-    img.className = 'heart-icon';
-    bar.appendChild(img);
-  }
 
-  
+
   score.innerText = `Affection: ${affection}`;
 }
-
 
 const questions = [
   {
@@ -29,7 +21,7 @@ const questions = [
       { text: 'Offer a lemon', affection: -1 },
     ],
   },
-   {
+  {
     text: 'Day 2: Purin seems bored. What do you do?',
     options: [
       { text: 'Give him a toy rabbit', affection: +1 },
@@ -48,7 +40,7 @@ const questions = [
 ];
 
 function loadQuestion() {
-  const resultText = document.getElementById('result-text'); 
+  const resultText = document.getElementById('result-text');
   resultText.style.display = 'none';
 
   const question = questions[currentDay];
@@ -64,7 +56,9 @@ function loadQuestion() {
     characterImage.src = './assets/purin2.png';
   } else if (currentDay === 1) {
     characterImage.src = './assets/purin.png';
-  } else {characterImage.src = './assets/purin2.png';}
+  } else {
+    characterImage.src = './assets/purin2.png';
+  }
 
   document.getElementById('story-text').innerText = question.text;
   updateAffectionBar();
@@ -97,11 +91,10 @@ function chooseOption(delta) {
 
   setTimeout(() => {
     resultText.innerText = '';
-    resultText.style.display = 'none'; 
+    resultText.style.display = 'none';
     loadQuestion();
   }, 1500);
 }
-
 
 function showEnding() {
   const resultText = document.getElementById('result-text');
@@ -118,11 +111,9 @@ function showEnding() {
     resultText.innerText = '💔 Purin turns away with sad eyes...';
     characterImage.src = './assets/purin-sad.png';
   }
-   resultText.style.display = 'block';
+  resultText.style.display = 'block';
   document.getElementById('replay-btn').style.display = 'block';
 }
-
-
 
 document.getElementById('replay-btn').addEventListener('click', function () {
   affection = 0;
@@ -130,5 +121,4 @@ document.getElementById('replay-btn').addEventListener('click', function () {
   window.location.href = './index.html';
 });
 
-// ゲーム開始
 loadQuestion();

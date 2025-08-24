@@ -16,7 +16,7 @@ document.getElementById('start-btn').addEventListener('click', function () {
 });
 
 function selectCharacter(name) {
-  localStorage.setItem('character', name); // キャラを保存
+  localStorage.setItem('character', name); 
   console.log('You selected:', name);
   window.location.href = `${name}.html`;
 }

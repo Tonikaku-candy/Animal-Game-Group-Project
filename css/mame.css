@@ -1,13 +1,15 @@
-
 #mame-photo {
-  width: 100%;
-  max-width: 900px;
+   position: fixed;           
+  top: 55%;                    
+  left: 50%;              
+  transform: translate(-50%, -50%);
+  width: 80%;                  
+  max-width: 900px;           
   height: auto;
   display: block;
-  margin: 0 auto;
-  padding-top: 10rem;
   z-index: 1;
 }
+
 
 
 #game-container {
@@ -23,20 +25,21 @@
 /* text */
 .dialogue-text {
   position: absolute;
-  top: 50%;  
+  top: 40%;  
   left: 20%;
-  right: 10%;
-  font-size: 1.8rem;
+  right: 20%;
+  bottom: 60%;
+  font-size: 1.4rem; 
   font-family: 'Winky Rough', sans-serif;
   color: #000000;
-  line-height: 1.6;
+  line-height: 1.4; 
   z-index: 10;
 }
 
 
 #result-wrapper {
   position: absolute;
-  top: 5%;
+  top: 10%;
   left: 0;
   width: 100%;
   display: flex;
